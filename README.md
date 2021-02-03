@@ -1,1 +1,1 @@
-# SEPP-Project
+# Ice-Cream Shop
