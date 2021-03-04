@@ -1,0 +1,63 @@
+{%extends 'base.html' %}
+{% block content %}
+{% if error %}
+<h4>{{ error }} </h4>
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <table align="center">
+            <tr ><td colspan="2"><h1>update page</h1></td></tr>
+        <tr>
+            <td>First Name :</td>
+            <td>
+                <input type="text" name="fname" value="{{ details.user.first_name }}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name :</td>
+            <td>
+                <input type="text" name="lname" value="{{ details.user.last_name }}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Email :</td>
+            <td>
+                <input type="email" name="email" value="{{ details.user.email }}" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td>Address :</td>
+            <td>
+                <input type="text area" name="address" value="{{ details.address }}" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>Phone No :</td>
+            <td>
+                <input width="5px" type="text" name="phone_number" value="{{ details.phone_no }}" />
+            </td>
+        </tr>
+        <tr>
+            <td>Username :</td>
+            <td>
+                <input type="text" name="username" value="{{ details.user.username }}" />
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <input type="password" name="password" placeholder="Enter password" />
+            </td>
+        </tr>
+        
+        <tr>
+            <td align="center" colspan="2">
+                <input type="submit" name="submit" value="Signup!" class="button" />
+            </td>
+        </tr>
+
+    </table>
+</form>
+
+{% endblock %}

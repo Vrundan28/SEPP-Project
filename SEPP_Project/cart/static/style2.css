@@ -1,0 +1,39 @@
+body {
+    background-image: url("images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .login_div {
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    margin: 18% 38%;
+    border:3px;
+    border-color: black;
+  }
+
+  .button {
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0931b;
+  }
+
+  h1 {
+    text-align: center;
+    color: black;
+  }
+
+  td,
+  th {
+    padding: 5px;
+  }
+  h4{
+    text-align: center;
+  }

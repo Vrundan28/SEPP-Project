@@ -1,0 +1,40 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Menu</title>
+</head>
+<body> -->
+    {%extends 'menu.html' %} 
+    {% block content %}
+    {% load cart %}
+    <h1>Menu</h1>
+     <br>
+    <div class="row">
+      {% for product in products %}
+      <div class="col">
+          <div class="card" style="width: 18rem; height: 30rem;">
+              <img src={{ product.image_url }} class="card-img-top" alt="..." height="325 rem">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.product_name }}</h5>
+                <p class="card-text">{{ product.price }}</p>
+                <form action="" method="POST">
+                  <input type="hidden"  name="id"  value="{{product.id}}">
+                  {%  csrf_token %}
+
+                  {%  if product|in_cart:cart %}
+
+                  {%  endif %}
+                  <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
+                 
+                </form>
+                
+              </div>
+            </div>
+      </div>
+      {% endfor %}
+      
+  </div>
+    {% endblock %}
+<!-- 
+</body>
+</html> -->

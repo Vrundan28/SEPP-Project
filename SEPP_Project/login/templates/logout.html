@@ -1,0 +1,10 @@
+{%extends "base.html" %}
+  
+  {% block content %}
+    {% csrf_token %}
+    <h2> You are logged out! </h2>
+    <h4> Click <a href="/login/login/"> here </a> to login again. </h4>
+    {% endblock %}
+<!-- </body> -->
+
+<!-- </html> -->

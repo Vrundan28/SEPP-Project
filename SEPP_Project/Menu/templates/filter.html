@@ -1,0 +1,17 @@
+{%extends 'menu.html' %}
+{% block content %}
+<div class="row">
+    {% for product in products %}
+    <div class="col">
+        <div class="card" style="width: 18rem; height: 30rem;">
+            <img src={{ product.image_url }} class="card-img-top" alt="..." height="325 rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.product_name }}</h5>
+              <p class="card-text">{{ product.price }}</p>
+              <a href="#" class="btn btn-primary">Add to cart</a>
+            </div>
+          </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
