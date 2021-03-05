@@ -1,33 +1,35 @@
-from django.http.response import HttpResponse
+from Menu.templatetags.cart import quantity
 from django.shortcuts import render
 from .models import Product_details
 from cart.models import cart
 from django.contrib.auth.models import User
 
-# Create your views here.
+
 def viewMenu(request):
-     # print(products)
     if request.method =="POST":       
-        # print(Product_details.product_name) 
         selectedId=request.POST.get('id')
         itemInCart=Product_details.objects.get(id=selectedId)
         try:
-            # print("Jainil")
             curr_user = request.user
             alreadythere = cart.objects.get(name=itemInCart.product_name, user_id=curr_user.id)
-            #print(alreadythere.quantity)
-            # for item in alreadythere:
-
-            alreadythere.quantity=alreadythere.quantity+1
-            alreadythere.save()
-            # print(alreadythere.quantity)
+            qty = int(request.POST.get('quantity'))
+            if qty > 0:
+                alreadythere.quantity = qty
+                alreadythere.save()
+            else:
+                print("1234")
+                c = cart.objects.get(id = alreadythere.id)
+                c.delete()
+            print("Jainil")
+            
         except cart.DoesNotExist :
-            carts=cart(name=itemInCart.product_name,price=itemInCart.price,quantity=1,total=0,img_link=itemInCart.image_url,user_id=curr_user.id,product_id=selectedId)
+            print("vrundan")
+            carts=cart(name=itemInCart.product_name,price=itemInCart.price,total=0,quantity=1,img_link=itemInCart.image_url,user_id=curr_user.id,product_id = selectedId)
             carts.save()
-    p_c=cart.objects.all()
-    products = Product_details.objects.all()
     
-    return render(request,'viewMenu.html',{'products':products,'cart':p_c})
+    products_cart = cart.objects.all()
+    products = Product_details.objects.all()
+    return render(request,'viewMenu.html',{'products':products,'products_cart':products_cart}) 
 
 
 def cone(request):
@@ -41,7 +43,7 @@ def candy(request):
 
 
 def family_pack(request):
-    products = Product_details.objects.filter(type = "family pack")
+    products = Product_details.objects.filter(type = "familypack")
     return render(request,'filter.html',{'products':products})   
 
 
@@ -60,7 +62,7 @@ def butterscotch_icecream(request):
     return render(request,'filter.html',{'products':products})   
      
 def vanila_icecream(request):
-    products = Product_details.objects.filter(flavour = "vanila")
+    products = Product_details.objects.filter(flavour = "Vanila")
     return render(request,'filter.html',{'products':products})   
    
 

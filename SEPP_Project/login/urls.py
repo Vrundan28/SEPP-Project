@@ -1,13 +1,12 @@
-from django.urls import path
-from .views import log_in, logout,loggedin, invalidlogin, signup, update
-from django.contrib.auth import views as auth_views
+from .views import log_in, logout, signup, update, forgot_password, home
+# from django.contrib.auth import views as auth_views
 from django.conf.urls import url
 
 urlpatterns = [
    url('signup/',signup),
    url('log_in/', log_in),
    url('logout/', logout),
-   url('loggedin/', loggedin),
-   url('invalidlogin/', invalidlogin),
    url('update/', update),
+   url('forgot_password/',forgot_password),
+   url('',home),
 ]

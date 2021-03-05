@@ -1,40 +1,44 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Menu</title>
-</head>
-<body> -->
-    {%extends 'menu.html' %} 
-    {% block content %}
-    {% load cart %}
-    <h1>Menu</h1>
-     <br>
-    <div class="row">
-      {% for product in products %}
-      <div class="col">
-          <div class="card" style="width: 18rem; height: 30rem;">
-              <img src={{ product.image_url }} class="card-img-top" alt="..." height="325 rem">
-              <div class="card-body">
-                <h5 class="card-title">{{ product.product_name }}</h5>
-                <p class="card-text">{{ product.price }}</p>
-                <form action="" method="POST">
-                  <input type="hidden"  name="id"  value="{{product.id}}">
-                  {%  csrf_token %}
+{%extends 'menu.html' %} 
+{% block content %}
+{% load cart %}
+<h1>Menu</h1>
+<div class="row">
+    {% for product in products %}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    
+    <div class="col">
+        <div class="card" style="width: 18rem; height: 30rem;">
+            <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.product_name }}</h5>
+              <p class="card-text">Price :  {{ product.price }}</p>
+              <form action="/Menu/viewMenu/" method="POST">
+                <input type="hidden"  name="id"  value="{{product.id}}">
+                {%  csrf_token %}
 
-                  {%  if product|in_cart:cart %}
-
-                  {%  endif %}
+                {% if product|in_cart:products_cart %}
+                <p>Quantity : 
+                  <input
+                    type="number"
+                    name="quantity"
+                    style="width: 50px"
+                    value="{{ product|quantity:products_cart }}"
+                    onchange="this.form.submit()"
+                  />
+                </p>
+                {% else %}
                   <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
-                 
-                </form>
-                
-              </div>
+                {% endif %}
+              </form>
             </div>
-      </div>
-      {% endfor %}
-      
-  </div>
-    {% endblock %}
-<!-- 
-</body>
-</html> -->
+            
+          </div>
+          
+          <br><br><br>
+    </div>
+    {% endfor %}
+    
+</div>
+ <br>
+{% endblock %}
