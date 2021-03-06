@@ -23,5 +23,3 @@ def vieworder(request):
       order=order_details(total_price=totalprice,total_qty=totalqty,u_id=curr_user.id)   
 
       return render(request,'vieworder.html',{'o':order,'added':added})
-
-

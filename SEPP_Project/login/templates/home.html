@@ -1,42 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    {% load static %} 
-    <title>Home</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'home.css' %}"/>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ice Cream</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="static/style7.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    
+
+    <header id="header">
         <div class="container-fluid">
-          <img
-            src="https://i.ytimg.com/vi/DVuw3my_r4Y/maxresdefault.jpg"
-            width="70"
-            height="40"
-            class="d-inline-block align-top"
-          />
-          <a class="navbar-brand" href="">Jaidan Ice-Cream</a>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">  
-          </div>
-          
-          <a class="navbar-brand" href="/login/log_in/">Login</a>
-        </div>
-      </nav>
-
-    <div style="margin: 50px 50px;"> 
-
-        <div class="container" >
+            <div id="logo" class="pull-left">
+                <a href="#landing" style="text-decoration: none;">
+                    <h1>Ice Cream </h1>
+                </a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <!-- <li class="menu-active"><a href="#home">Home</a></li> -->
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="/login/log_in/">Login</a></li>
+                    <li><a href="/login/signup/">Sign Up</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
             
-            <img src="{% static 'images/2.jpg' %}" style=" width: 15rem; height: 15rem;"  alt="">
-            <div class="row">
-            <!-- <div class="col">Vrundan</div> -->
+        </div>
+    </header>
+
+    <section id="landing">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <p class="hello"></p>
+                <p class="name"></p>
+                <p class="intro"><sup></sup> </p>
                 
             </div>
         </div>
-    
-    </div>
+    </section>
 
-    <script src="{% static 'js/jquery.js'%}"></script>
-    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <section id="about" style="padding-top: 80px;">
+        <div class="container">
+            
+            <div class="section-title">About Us</div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div style="display: flex;justify-content: center;">
+                        <div class="hexagon">
+                            <div class="hexTop"></div>
+                            <div class="hexBottom"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 desc">
+                    <p class="section-desc">
+                        Ice Cream is lob.
+                    </p>
+                    <p class="section-desc">Project by Jainil
+                    </p>
+                    <p class="section-desc">Hope you liked it</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container" style="padding-top: 80px;">
+        <p class="section-title" style="margin-bottom: -10px;">Contact Us</p>
+        <a href="javascript:alert('trivedijaynil9@gmail.com')"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/vrundan_shah/" target="_blank"><i
+                class="fab fa-instagram"></i></a>
+        <a href="https://facebook.com/jainil.trivedi.1/" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+    </section>
+
+    <footer>
+        <p>Copyright © 2021 : Jainil</p>
+    </footer>
+
+    <script>
+        AOS.init();
+
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
 </body>
+
 </html>

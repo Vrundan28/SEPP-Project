@@ -1,44 +1,177 @@
 {%extends 'menu.html' %} 
 {% block content %}
 {% load cart %}
-<h1>Menu</h1>
-<div class="row">
-    {% for product in products %}
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    
-    <div class="col">
-        <div class="card" style="width: 18rem; height: 30rem;">
-            <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
-            <div class="card-body">
-              <h5 class="card-title">{{ product.product_name }}</h5>
-              <p class="card-text">Price :  {{ product.price }}</p>
-              <form action="/Menu/viewMenu/" method="POST">
-                <input type="hidden"  name="id"  value="{{product.id}}">
-                {%  csrf_token %}
 
-                {% if product|in_cart:products_cart %}
-                <p>Quantity : 
-                  <input
-                    type="number"
-                    name="quantity"
-                    style="width: 50px"
-                    value="{{ product|quantity:products_cart }}"
-                    onchange="this.form.submit()"
-                  />
-                </p>
-                {% else %}
-                  <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
-                {% endif %}
-              </form>
+<div class="row">
+  
+  <h2 style="margin-left: 5%;"  >Cone</h2><br>
+  
+</div>
+<div class="row">
+      {% for product in products %}
+      {% if product|type:"Cone" %}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col">
+          <div class="card" style="width: 18rem; height: 30rem;">
+              <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.product_name }}</h5>
+
+                <p class="card-text">Price :  {{ product.price }}</p>
+                <form action="/Menu/viewMenu/" method="POST">
+                  <input type="hidden"  name="id"  value="{{product.id}}">
+                  {%  csrf_token %}
+
+                  {% if product|in_cart:products_cart %}
+                  <p>Quantity : 
+                    <input
+                      type="number"
+                      name="quantity"
+                      style="width: 50px"
+                      value="{{ product|quantity:products_cart}}"
+                      onchange="this.form.submit()"
+                    />
+                  </p>
+                  {% else %}
+                    <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
+                  {% endif %}
+                </form>
+              </div>
+              
             </div>
             
-          </div>
-          
-          <br><br><br>
+            <br><br><br>
+      </div>
+      {% endif %}
+      {% endfor %}  
+</div>
+<div class="row">
+    <h2 style="margin-left: 5%;">Family Pack</h2>
+  </div>
+  <div class="row">
+    {% for product in products %}
+      {% if product|type:"Family Pack" %}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col">
+          <div class="card" style="width: 18rem; height: 30rem;">
+              <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.product_name }}</h5>
+
+                <p class="card-text">Price :  {{ product.price }}</p>
+                <form action="/Menu/viewMenu/" method="POST">
+                  <input type="hidden"  name="id"  value="{{product.id}}">
+                  {%  csrf_token %}
+
+                  {% if product|in_cart:products_cart %}
+                  <p>Quantity : 
+                    <input
+                      type="number"
+                      name="quantity"
+                      style="width: 50px"
+                      value="{{ product|quantity:products_cart}}"
+                      onchange="this.form.submit()"
+                    />
+                  </p>
+                  {% else %}
+                    <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
+                  {% endif %}
+                </form>
+              </div>
+              
+            </div>
+            
+            <br><br><br>
+      </div>
+      {% endif %}
+      {% endfor %}  
+  </div>
+  <div class="row">
+      <h2 style="margin-left: 5%;">Cup</h2>
     </div>
-    {% endfor %}
-    
+    <div class="row">
+    {% for product in products %}
+      {% if product|type:"Cup" %}
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="col">
+          <div class="card" style="width: 18rem; height: 30rem;">
+              <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
+              <div class="card-body">
+                <h5 class="card-title">{{ product.product_name }}</h5>
+
+                <p class="card-text">Price :  {{ product.price }}</p>
+                <form action="/Menu/viewMenu/" method="POST">
+                  <input type="hidden"  name="id"  value="{{product.id}}">
+                  {%  csrf_token %}
+
+                  {% if product|in_cart:products_cart %}
+                  <p>Quantity : 
+                    <input
+                      type="number"
+                      name="quantity"
+                      style="width: 50px"
+                      value="{{ product|quantity:products_cart}}"
+                      onchange="this.form.submit()"
+                    />
+                  </p>
+                  {% else %}
+                    <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
+                  {% endif %}
+                </form>
+              </div>
+              
+            </div>
+            
+            <br><br><br>
+      </div>
+      {% endif %}
+      {% endfor %}  
+    </div>
+    <div class="row">
+      <h2 style="margin-left: 5%;">Candy</h2>
+    </div>
+    <div class="row">
+      {% for product in products %}
+        {% if product|type:"Candy" %}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="col">
+            <div class="card" style="width: 18rem; height: 30rem;">
+                <img src="{{ product.image_url }}" class="card-img-top" alt="..." height="325 rem">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.product_name }}</h5>
+  
+                  <p class="card-text">Price :  {{ product.price }}</p>
+                  <form action="/Menu/viewMenu/" method="POST">
+                    <input type="hidden"  name="id"  value="{{product.id}}">
+                    {%  csrf_token %}
+  
+                    {% if product|in_cart:products_cart %}
+                    <p>Quantity : 
+                      <input
+                        type="number"
+                        name="quantity"
+                        style="width: 50px"
+                        value="{{ product|quantity:products_cart}}"
+                        onchange="this.form.submit()"
+                      />
+                    </p>
+                    {% else %}
+                      <button type="submit" value="Add to cart" class="btn btn-primary">Add to cart</a>
+                    {% endif %}
+                  </form>
+                </div>
+                
+              </div>
+              
+              <br><br><br>
+        </div>
+        {% endif %}
+        {% endfor %} 
+      </div> 
 </div>
  <br>
 {% endblock %}

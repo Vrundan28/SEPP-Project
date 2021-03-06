@@ -1,0 +1,73 @@
+html,body{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+body {
+  background-color: #2cabee;
+  font-family: Arial;
+}
+  
+.container {
+  position: fixed;
+  max-height: 620px;
+  background-color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 30px 100px;
+  border-radius: 5px;
+}
+
+.container .bg_section_login,
+.container .bg_section_signup {
+  max-height: 620px;
+  background-size: cover !important;
+  position: relative;
+}
+
+.container .m_bg_section_login,
+.container .m_bg_section_signup {
+  display: block;
+  background-size: contain;
+  padding-left: 0px;
+  padding-bottom: 0%;
+}
+
+.container .m_bg_section_login img {
+  width: 34%;
+  padding-top: 6%;
+}
+  
+.container .bg_section_login,
+.container .bg_section_signup {
+  background: url("images/13.jpg") no-repeat;
+}
+  
+.container .login_section {
+  padding-top: 200px;
+  padding-bottom: 185px;
+  padding-left: 108px;
+}
+
+.container .login_section form,
+.container .signup_section form {
+  padding-bottom: 100px;
+}
+
+.container .signup_section {
+  padding-top: 20px;
+  padding-bottom: 18px;
+  padding-left: 80px;
+}

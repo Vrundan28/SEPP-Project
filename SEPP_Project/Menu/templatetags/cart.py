@@ -14,3 +14,10 @@ def quantity(Product,cart):
         if int(p.product_id) == Product.id :
             return p.quantity
     return 0
+
+@register.filter(name="type")
+def type(Product,t):
+    
+    if Product.type==t:
+        return True
+    return False
