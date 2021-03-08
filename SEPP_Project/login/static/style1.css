@@ -1,15 +1,11 @@
-body {
-    background-image: url("images/bg1.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
+  body{
+    background-color: rgb(215, 234, 250);
   }
-
   .login_div {
     width: 300px;
     padding: 20px;
     text-align: center;
-    margin: 18% 38%;
+    margin: auto;
     border:3px;
     border-color: black;
   }
@@ -25,15 +21,8 @@ body {
     background-color: #008CBA;
   }
 
-  h1 {
-    text-align: center;
-    color: black;
-  }
-
-  td,
-  th {
+  
+   /* {
     padding: 5px;
-  }
-  h4{
-    text-align: center;
-  }
+    border:1px solid black;
+  } */

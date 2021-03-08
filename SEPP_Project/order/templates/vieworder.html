@@ -34,6 +34,7 @@
           </tr>
           {% endfor %}
           <tfoot>
+            <hr>
             <tr>
               <td></td>
               <td colspan="1" >Total Ice-Creams</td>
@@ -49,17 +50,11 @@
         </tbody>
       </table>
       
-    <div align="left">
+    <div align = "right">
       <form action="payment.html" method="POST">
         {% csrf_token %}
-        <select  >
-          <option value=""  selected disabled hidden >Payment method</option>
-          <option value="PTM"> Paytm </option>
-          <option value="Mastercard"> Mastercard  </option>
-          <option value="CreditCard" >Credit Card</option>
-        </select><br>
         <button class="btn btn-primary" type="submit" name="see_bill">
-          Pay
+          Proceed to Pay
         </button>
       </form>
     </div>

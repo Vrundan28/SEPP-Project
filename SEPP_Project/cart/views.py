@@ -1,39 +1,36 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render
 from .models import cart
-from django.contrib.auth.models import User
-from django.db import models
-from django.http import HttpResponseRedirect
+from Menu.models import Product_details
+from django.urls import reverse
+
 
 # Create your views here.
 
 def viewcart(request):
    curr_user=request.user
    added=cart.objects.filter(user_id=curr_user.id)
+   
    if request.method == "POST":
-      total_qty=total_price=0
-      thisprice=0
-      thisqty=0
-      for items in added:
-         items.quantity= request.POST.get(items.name)
-         items.save()
-         thisprice=(items.price)
-         thisqty=(items.quantity)
-         print(items.price)
+
+      if 'place_order' in request.POST:
+         return HttpResponseRedirect('/order/vieworder/')
+      else:
+         selectedId=request.POST.get('id')
+         # itemInCart=Product_details.objects.get(id=selectedId)
+         print(selectedId)
+         curr_user = request.user
+         alreadythere = cart.objects.get(product_id=selectedId, user_id=curr_user.id)
+         print(alreadythere.product_id)
+         qty = int(request.POST.get('quantity'))
+         # print(qty)
+         if qty > 0:
+            alreadythere.quantity = qty
+            alreadythere.save()
+         else:
+            c = cart.objects.get(id = alreadythere.id)
+            c.delete()
          
-         total_price+=int(thisprice)*int(thisqty)
-         #total_price+=Convert.ToDouble(items.price)*Convert.ToDouble(items.quantity)
-         total_qty+=int(items.quantity)
-      # request.session['added'] = added
-      # request.session['total_qty']=total_qty
-      # request.session['total_price']=total_price
-      # return HttpResponseRedirect("/order/vieworder/")#,{'added':added ,'total_qty':total_qty ,'total_price':total_price})
-      return HttpResponseRedirect("/order/vieworder/")
-      # ?added=add&total_qty=total_qt&total_price=total_pric")
-   else:
-      return render(request, 'viewcart.html',{'c':added})
-   # curr_user=request.user
-   # added=cart.objects.filter(user_id=curr_user.id)
-   # total_in_cart = 0
-   # for item in added :
-   #    total_in_cart += item.price
+   
+   return render(request, 'viewcart.html',{'c':added})
       

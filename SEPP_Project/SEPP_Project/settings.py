@@ -126,3 +126,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'login/static/'),
+    os.path.join(BASE_DIR, 'Menu/static1/'),
+    os.path.join(BASE_DIR, 'order/static/'),
+    os.path.join(BASE_DIR, 'cart/static/'),
+       
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')

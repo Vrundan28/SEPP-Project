@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <title>Paytm</title>
+  </head>
+  <body style="background-color: #2cabee; "> 
+    <div class="container" style="background-color: #FFFFFF; width: 500px;height: 400px; border-radius: 15px; margin-top: 200px;padding: 80px;">
+      <div class="row">
+        <div align="center">
+          <h4 class="pb-2">Select your Paytm account type</h4>
+          <br />
+          <div class="form-group">
+            <h5><input type="radio"  name="optradio" checked />Paytm Wallet</h5>
+            <br />
+            <h5>
+              <input type="radio" name="optradio" class="ml-5" /> Paytm UPI
+            </h5>
+            <br />
+          </div>
+          <p>
+            <form action="/order/success/" method="POST">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-primary">
+                Pay Using above Selected option
+              </button>
+            </form>
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  </body>
+</html>
