@@ -6,11 +6,12 @@ from django.contrib.auth.models import User
 
 
 def viewMenu(request):
+    curr_user = request.user
     if request.method =="POST":       
         selectedId=request.POST.get('id')
         itemInCart=Product_details.objects.get(id=selectedId)
         try:
-            curr_user = request.user
+            
             alreadythere = cart.objects.get(name=itemInCart.product_name, user_id=curr_user.id)
             qty = int(request.POST.get('quantity'))
             if qty > 0:
@@ -26,7 +27,9 @@ def viewMenu(request):
     
     products_cart = cart.objects.all()
     products = Product_details.objects.all()
-    return render(request,'viewMenu.html',{'products':products,'products_cart':products_cart}) 
+    return render(
+        request,'viewMenu.html',{'products':products,'products_cart':products_cart,'u':curr_user.id}
+    ) 
 
 
 def cone(request):

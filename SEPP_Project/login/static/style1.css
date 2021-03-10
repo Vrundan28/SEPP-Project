@@ -20,7 +20,11 @@
     cursor: pointer;
     background-color: #008CBA;
   }
-
+  
+  #footerline{
+    text-align: right;
+    padding-right: 15%;
+  }
   
    /* {
     padding: 5px;

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from cart.models import cart
 from .models import order_details
 from cart.models import cart
+from Menu.models import Product_details
 from django.contrib.auth.models import User
-
 # Create your views here.
 
 def vieworder(request):
@@ -33,8 +33,15 @@ def payment(request):
    return render(request,'payment.html')
 
 def success(request):
+
+   # Product_details.timesOrdered=Product_details.timesOrdered+1
    curr_user = request.user
    c = cart.objects.filter(user_id = curr_user.id)
    for p in c:
+      pid=Product_details.objects.get(id=p.product_id)
+      
+      pid.timesOrdered = pid.timesOrdered+1
+      
+      pid.save()
       p.delete()
    return render(request,'success.html')
