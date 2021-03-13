@@ -96,7 +96,7 @@ def family_pack(request):
             carts=cart(name=itemInCart.product_name,price=itemInCart.price,total=0,quantity=1,img_link=itemInCart.image_url,user_id=curr_user.id,product_id = selectedId)
             carts.save()
     products_cart = cart.objects.all()
-    products = Product_details.objects.filter(type = "familypack")
+    products = Product_details.objects.filter(type = "Family Pack")
     return render(request,'filter.html',{'products':products,'products_cart':products_cart}) 
 
 

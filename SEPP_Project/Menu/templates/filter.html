@@ -14,7 +14,8 @@
           <input type="hidden"  name="id"  value="{{product.id}}">
             {% if product|in_cart:products_cart %}
             <p>Quantity :
-              <input type="number" name="quantity" style="width: 50px" value="{{ product|quantity:products_cart}}"
+              <input type="number" name="quantity" style="width: 50px" 
+              value="{% quantity Product=product cart=cart uid=u %}"
                 onchange="this.form.submit()" />
             </p>
             {% else %}

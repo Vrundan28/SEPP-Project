@@ -24,13 +24,14 @@
                     <input type="hidden"  name="id"  value="{{product.id}}">
                     {%  csrf_token %}
   
-                    {% if product|in_cart:products_cart and cart|uid:u %}
+                    {% if product|in_cart:products_cart  %}
+                    
                     <p>Quantity : 
                       <input
                         type="number"
                         name="quantity"
                         style="width: 50px"
-                        value="{{ product|quantity:products_cart }}"
+                        value="{% quantity Product=product cart=products_cart uid=u %}"
                         onchange="this.form.submit()"
                       />
                     </p>
@@ -100,7 +101,7 @@
                             type="number"
                             name="quantity"
                             style="width: 50px"
-                            value="{{ product|quantity:products_cart}}"
+                            value="{% quantity Product=product cart=cart uid=u %}"
                             onchange="this.form.submit()"
                           />
                         </p>
@@ -169,7 +170,7 @@
                       type="number"
                       name="quantity"
                       style="width: 50px"
-                      value="{{ product|quantity:products_cart}}"
+                      value="{% quantity Product=product cart=cart uid=u %}"
                       onchange="this.form.submit()"
                     />
                   </p>
@@ -238,7 +239,7 @@
                       type="number"
                       name="quantity"
                       style="width: 50px"
-                      value="{{ product|quantity:products_cart}}"
+                      value="{% quantity Product=product cart=cart uid=u %}"
                       onchange="this.form.submit()"
                     />
                   </p>
@@ -308,7 +309,7 @@
                       type="number"
                       name="quantity"
                       style="width: 50px"
-                      value="{{ product|quantity:products_cart}}"
+                      value="{% quantity Product=product cart=cart uid=u %}"
                       onchange="this.form.submit()"
                     />
                   </p>
@@ -378,7 +379,7 @@
                         type="number"
                         name="quantity"
                         style="width: 50px"
-                        value="{{ product|quantity:products_cart}}"
+                        value="{% quantity Product=product cart=cart uid=u %}"
                         onchange="this.form.submit()"
                       />
                     </p>
