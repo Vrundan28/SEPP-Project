@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css1/bootstrap.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'style1.css' %}" />
+  <title>Feedback</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container-fluid">
+      <img src="https://i.ytimg.com/vi/DVuw3my_r4Y/maxresdefault.jpg" width="70" height="40"
+        class="d-inline-block align-top" />
+      <a class="navbar-brand" href="">Ice-Cream</a>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      </div>
+
+    </div>
+  </nav>
+  
+  <br /><br />
+  <h2 align="center">Feedbacks are always appreciated</h2><br></br>
+<div style="width:300px; margin: auto;" align="center" >
+  <form action="" method="POST" align="center">
+    {% csrf_token %}
+      Feedback
+      <textarea class="form-control" name="feedback" rows="4" cols="50" required>      </textarea><br><br>
+      <input type="submit" class="btn btn-primary" value="submit" align="center">
+    
+  </form>
+</div>
+  <script src="{% static 'js1/jquery.js'%}"></script>
+  <script src="{% static 'js1/bootstrap.min.js'%}"></script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'style8.css' %}"/>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container-fluid">
+          <img
+            src="https://i.ytimg.com/vi/DVuw3my_r4Y/maxresdefault.jpg"
+            width="70"
+            height="40"
+            class="d-inline-block align-top"
+          />
+          <a class="navbar-brand" href="/Menu/viewMenu/">Ice-Cream</a>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">  
+          </div>
+          
+          <a class="navbar-brand" href="/login/log_in/">Login</a>
+        </div>
+      </nav>
+
+      {% block content %}
+      
+      {% endblock %}
+    <script src="{% static 'js/jquery.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+</body>
+</html>
